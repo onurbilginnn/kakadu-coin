@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
   assetPrefix: `/${repoName}/`,
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./src/imageLoader.ts",
   },
 };
 
