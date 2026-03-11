@@ -11,5 +11,5 @@ export default function imageLoader({ src }: ImageLoaderProps): string {
   if (src.startsWith("http") || src.startsWith("//")) {
     return src;
   }
-  return `/kakadu-coin${src}`;
+  return src;
 }
