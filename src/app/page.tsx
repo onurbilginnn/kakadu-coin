@@ -76,12 +76,14 @@ function ScrollReveal({
   stagger?: number;
 }) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.12 });
+  // Keep sections visible even if observer/runtime behavior differs on static hosts.
+  const showContent = true || isVisible;
   const staggerClass = stagger ? `stagger-${stagger}` : "";
 
   return (
     <div
       ref={ref}
-      className={`${animation} ${staggerClass} ${isVisible ? "scroll-visible" : ""} ${className}`}
+      className={`${animation} ${staggerClass} ${showContent ? "scroll-visible" : ""} ${className}`}
     >
       {children}
     </div>
