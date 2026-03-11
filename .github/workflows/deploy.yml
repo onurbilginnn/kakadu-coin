@@ -28,6 +28,11 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: npm ci
       - run: npm run build
+        env:
+          NEXT_PUBLIC_BUY_LINK: ${{ vars.NEXT_PUBLIC_BUY_LINK }}
+          NEXT_PUBLIC_CONTRACT_ADDRESS: ${{ vars.NEXT_PUBLIC_CONTRACT_ADDRESS }}
+          NEXT_PUBLIC_TWITTER_URL: ${{ vars.NEXT_PUBLIC_TWITTER_URL }}
+          NEXT_PUBLIC_TELEGRAM_URL: ${{ vars.NEXT_PUBLIC_TELEGRAM_URL }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
